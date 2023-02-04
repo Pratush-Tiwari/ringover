@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Contact from './components/contact/Contact';
+import Team from './components/team/Team';
+import Nav from "./components/Nav";
+import Journey from "./components/journey/Journey";
+ import Allstore from './components/store/Allstore';
+import Storeshoe from "./components/store/Storeshoe";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
+
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav></Nav>
+      {/* <Contact></Contact> */}
+      {/* <Team></Team> */}
+      {/* <Journey></Journey> */}
+      {/* <Allstore></Allstore> */}
+      {/* <Storeshoe></Storeshoe> */}
+      {/* <Select></Select> */}
+      <Routes>
+          <Route path="/" element={<Journey></Journey>} />
+        </Routes>
+        <Routes>
+          <Route path="/allproducts" element={<Allstore/>} />
+        </Routes>
+        <Routes>
+          <Route path="/productdetails/:id" element={<Storeshoe/>} />
+        </Routes>
+        <Routes>
+          <Route path="/journey" element={<Journey/>} />
+        </Routes>
+        <Routes>
+          <Route path="/team" element={<Team/>} />
+        </Routes>
+        <Routes>
+          <Route path="/contact" element={<Contact/>} />
+        </Routes>
     </div>
+    </Router>
   );
 }
 
